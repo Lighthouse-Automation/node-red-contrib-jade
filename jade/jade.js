@@ -1,3 +1,4 @@
+/*
 The MIT License (MIT)
 
 Copyright (c) 2015 Lighthouse Automation
@@ -21,4 +22,19 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+*/
 
+module.exports = function(RED) {
+    function jadeNode(config) {
+        RED.nodes.createNode(this,config);
+        
+        this.name = config.name;
+        var node = this;
+
+        node.on('input', function(msg) {
+            node.send(msg);
+        }); 
+    }
+
+    RED.nodes.registerType("jade", jadeNode);
+}

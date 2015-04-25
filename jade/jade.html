@@ -1,3 +1,4 @@
+<!--
 The MIT License (MIT)
 
 Copyright (c) 2015 Lighthouse Automation
@@ -21,4 +22,33 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+-->
 
+<script type="text/javascript">
+    RED.nodes.registerType('jade',{
+        category: 'function',
+        color:"#E6E0F8",
+        defaults: {
+            name:{value:""},
+            schedule:{value:""}
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: "timer.png",
+        label: function() {
+            return this.name || "Jade";
+        },
+
+    });
+</script>
+
+<script type="text/x-red" data-template-name="later">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="jade">
+   <p>Node that renders jade string in message.payload into html</p>
+</script>
